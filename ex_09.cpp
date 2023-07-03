@@ -1,28 +1,43 @@
-/* 9. Faça um programa que leia um ano (valor inteiro) e imprima se ele é bissexto ou não. OBS:
-São bissexto todos os anos múltiplos de 400. Não sendo múltiplo de 400, são bissextos todos
-os anos múltiplos de 4 mas que não são múltiplos de 100 */
-
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 int main()
 {
-	int ano;
+	float seq1=0, seq2=0, seq3=0, seq4=0, n, i;
 	
-	printf("Digite o ano para verificar se e bissexto: ");
-	scanf("%d", &ano);
 	
-	if(ano % 400 == 0)
+	for(i=0; n!=101; i++)
 	{
-		printf("O ano e bissexto!");
-	}
-	else
-	{
-		if(ano % 4 == 0 && ano % 100 != 0)
+		printf("Digite um numero de 0 a 100 ou digite 101 para sair: ");
+		scanf("%f", &n);
+		
+		if(n>=0 && n<=25)
 		{
-			printf("O ano e bissexto!");
+			seq1++;
 		}
+		
 		else
-		printf("O ano nao e bissexto :(");
+		{
+			if(n>=26 && n<=50)
+			{	
+			seq2++;
+			}
+			else
+				{
+					if(n>=51 && n<=75)
+					{
+						seq3++;
+					}
+					else
+					{
+						if(n>=76 && n<=100)
+						{
+							seq4++;
+						}
+					}
+				}
+		}
 	}
+	
+	printf("Intevalor [0..25]: %.0f\nIntervalor [26..50]: %.0f\nIntervalo [51..75]: %.0f\nIntervalo [76..100]: %.0f", seq1, seq2, seq3, seq4);
 }

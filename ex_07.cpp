@@ -1,56 +1,47 @@
-//7. Escreva um programa lê três números e os imprime em ordem (ordem crescente). 
-
 #include<stdio.h>
 #include<stdlib.h>
 
 int main()
-
 {
-	int x, y, z;
+	int n, maior_primo=0, i, j, primo=0;
 	
-	printf("Digite o primeiro numero: ");
-	scanf("%d", &x);
+	printf("Digite um valor para n: ");
+	scanf("%d", &n);
 	
-	printf("Digite o segundo numero: ");
-	scanf("%d", &y);
-	
-	printf("Digite o terceiro numero: ");
-	scanf("%d", &z);
-	
-	if(x<y && x<z)
+	for(i=n; i>=2; i--)
 	{
-		if(y<z)
+		if(primo==0)
 		{
-			printf("%d, %d, %d", x, y, z);
-		}
-		else
-		printf("%d, %d, %d", x, z, y);
-	}
-		else
-		{
-	
-			if(y<x && y<z)
+			for(j=2; j<i; j++)
 			{
-				if(x<z)
-				{	
-					printf("%d, %d, %d", y, x, z);
-				}
-			else
-				printf("%d, %d, %d", y, z, x);
-			}
-		
-			else
-			{
-	
-				if(z<x && z<y)
+				if(i%j==0)
 				{
-					if(x<y)
-					{
-						printf("%d, %d, %d", z, x, y);
-					}
-				else
-				printf("%d, %d, %d", z, y, x);
+					primo=0;
+					break;
 				}
-			}	
+				else
+					primo=i;
+					continue;
+			}
 		}
+		else
+		break;
+	} 
+
+	for(i=n; maior_primo==0; i++)
+	{
+		for(j=2; j<n; j++)
+		{
+			if(i%j==0)
+			{
+				maior_primo=0;
+				break;
+			}
+			else
+				maior_primo=i;
+				continue;
+		}
+	}
+	
+	printf("o maior numero primo menor ou igual a n e: %d \no menor numero primo maior ou igual a n e: %d", primo, maior_primo);
 }
